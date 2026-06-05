@@ -1,7 +1,7 @@
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from imblearn.over_sampling import SMOTE
@@ -19,14 +19,7 @@ df[df["TotalCharges"]==" "]
 df["TotalCharges"] = df["TotalCharges"].replace({" ": "0.0"})
 df["TotalCharges"] = df["TotalCharges"].astype(float)
 print(df["Churn"].value_counts())
-def plot_boxplot(df, column_name):
-
-  plt.figure(figsize=(5, 3))
-  sns.boxplot(y=df[column_name])
-  plt.title(f"Box Plot of {column_name}")
-  plt.ylabel(column_name)
-  plt.show
-plot_boxplot(df, "tenure")  
+ 
 df["Churn"] = df["Churn"].replace({"Yes": 1, "No": 0})
 print(df.head())
 print(df["Churn"].value_counts())
